@@ -4,10 +4,10 @@
    "content":{
       "metaDataVersion":"1.3.0",
       "name":"com.microchip.mplabx.project.matlab-lvmc-dspic33ck256mp508-foc-opticalencoder",
-      "version":"x.x.x",
-      "displayName":"xxxxxxxxxxxxxxx",
+      "version":"1.0.0",
+      "displayName":"matlab lvmc dspic33ck256mp508 foc optical encoder",
       "projectName":"matlab-lvmc-dspic33ck256mp508-foc-opticalencoder",
-      "shortDescription":"xxxxxxxxxxxxxxx",
+      "shortDescription":"Encoder Based FOC for PMSM using MATLAB",
       "ide":{
          "name":"MPLABX",
          "semverRange":">=5.40.0"
@@ -17,8 +17,8 @@
          "semverRange":"^1.50.0"
       },
       "dfp":{
-         "name":"xxxxxxxxxxxxxxx",
-         "semverRange":">=x.x.x"
+         "name":"dsPIC33CK-MP_DFP",
+         "semverRange":">=1.4.102"
       },
 	  "configurator": {
          "name": "MCC",
@@ -30,12 +30,12 @@
          "content":{
             "metaDataVersion":"1.0.0",
             "category":"com.microchip.device",
-            "name":"xxxxxxxxxxxxxxx",
+            "name":"dspic33ck256mp508",
             "versionRange":"*"
          }
       },
 	  "peripherals":[
-         "GPIO",
+         "GPIO"
       ],
       "keywords":[
          "GPIO",
