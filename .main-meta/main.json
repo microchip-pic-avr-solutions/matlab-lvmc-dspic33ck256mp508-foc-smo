@@ -35,7 +35,7 @@
          }
       },
 	  "peripherals":[
-         "GPIO",
+         "GPIO"
       ],
       "keywords":[
          "GPIO",
