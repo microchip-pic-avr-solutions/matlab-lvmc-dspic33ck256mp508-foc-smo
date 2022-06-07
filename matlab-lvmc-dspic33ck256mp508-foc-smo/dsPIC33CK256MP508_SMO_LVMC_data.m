@@ -1,8 +1,8 @@
 %% ************************************************************************
-% Model         :   PMSM Field Oriented Control
-% Description   :   Set Parameters for PMSM Field Oriented Control
-% File name     :   mcb_pmsm_foc_sensorless_dsPIC33_data.m
-% Copyright 2020 The MathWorks, Inc.
+% Model         :   Sensorless Field Oriented Control of PMSM Using SMO
+% Description   :   Set Parameters for Sensorless FOC of PMSM Using SMO
+% File name     :   dsPIC33CK256MP508_SMO_LVMC_data.m
+% Copyright 2022 Microchip Technology Inc.
 
 %% Simulation Parameters
 
@@ -24,7 +24,6 @@ dataType2 = fixdt(1,16,12);    % Fixed point code-generation
 %% System Parameters
 % Set motor parameters
 
-%Long Hurst Motor (Uncomment while using this motor from line below)
 pmsm.model  = 'Hurst 300';      %           // Manufacturer Model Number
 pmsm.sn     = '123456';         %           // Manufacturer Model Number
 pmsm.p  = 5;                    %           // Pole Pairs for the motor
@@ -36,27 +35,26 @@ pmsm.Kt = 0.274;                %Nm/A       // Torque constant
 pmsm.J = 7.061551833333e-6;     %Kg-m2      // Inertia in SI units
 pmsm.B = 2.636875217824e-6;     %Kg-m2/s    // Friction Co-efficient
 pmsm.I_rated  = 3.42*sqrt(2);   %A      	// Rated current (phase-peak)
-pmsm.QEPSlits = 1000;           %           // QEP Encoder Slits
 pmsm.N_max    = 2000;           %rpm        // Max speed
 pmsm.FluxPM   = (pmsm.Ke)/(sqrt(3)*2*pi*1000*pmsm.p/60); %PM flux computed from Ke
 pmsm.T_rated  = (3/2)*pmsm.p*pmsm.FluxPM*pmsm.I_rated;   %Get T_rated from I_rated
 
 %% Inverter parameters
 
-inverter.model         = 'LVMC';         % 		// Manufacturer Model Number
+inverter.model         = 'dsPIC33CK_LVMC';          % 		// Manufacturer Model Number
 inverter.sn            = 'INV_XXXX';         		% 		// Manufacturer Serial Number
 inverter.V_dc          = 24;       					%V      // DC Link Voltage of the Inverter
 inverter.ISenseMax     = 21.85; 					%Amps   // Max current that can be measured
 inverter.I_trip        = 10;                  		%Amps   // Max current for trip
 inverter.Rds_on        = 1e-3;                      %Ohms   // Rds ON
-inverter.Rshunt        = 0.01;                     %Ohms    // Rshunt
+inverter.Rshunt        = 0.01;                      %Ohms   // Rshunt
 inverter.R_board       = inverter.Rds_on + inverter.Rshunt/3;  %Ohms
 inverter.MaxADCCnt     = 4095;      				%Counts // ADC Counts Max Value
-inverter.invertingAmp  = -1;                        % 		//Non inverting current measurement amplifier
-inverter.deadtime      = 1e-6;
-inverter.OpampFb_Rf    = 4.02e3;                    %Ohms  //Opamp Feedback resistance for current measurement
-inverter.opampInput_R  = 532;                       %Ohms  //Opamp Input resistance for current measurement
-inverter.opamp_Gain    = inverter.OpampFb_Rf/inverter.opampInput_R; %Opamp Gain used for current measurement
+inverter.invertingAmp  = -1;                        % 		// Non inverting current measurement amplifier
+inverter.deadtime      = 1e-6;                      %sec    // Deadtime for the PWM 
+inverter.OpampFb_Rf    = 4.02e3;                    %Ohms   // Opamp Feedback resistance for current measurement
+inverter.opampInput_R  = 532;                       %Ohms   // Opamp Input resistance for current measurement
+inverter.opamp_Gain    = inverter.OpampFb_Rf/inverter.opampInput_R; % // Opamp Gain used for current measurement
 
 %% Derive Characteristics
 pmsm.N_base = mcb_getBaseSpeed(pmsm,inverter); %rpm // Base speed of motor at given Vdc
