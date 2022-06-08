@@ -11,10 +11,9 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 
 ## 2.	SUGGESTED DEMONSTRATION REQUIREMENTS
 ### 2.1 MATLAB Model Required for the Demonstration
+-  MATLAB model is cloned or downloaded as zip file from the Github repository ([link](https://github.com/microchip-pic-avr-solutions/matlab-lvmc-dspic33ck256mp508-foc-smo)).
 
-<p style='text-align: justify;'> MATLAB model is cloned or downloaded as zip file from the Github repository ([link](https://github.com/microchip-pic-avr-solutions/matlab-lvmc-dspic33ck256mp508-foc-smo)).
-
-### 2.2	Software Tools Used for Testing the MATLAB?Simulink Model
+### 2.2	Software Tools Used for Testing the MATLAB/Simulink Model
 1.	MPLAB X IDE and IPE (v6.0)
 2.	XC16 compiler (v2.00)
 3.	MATLAB R2022a
@@ -65,147 +64,105 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 ## 4.	BASIC DEMONSTRATION
 <p style='text-align: justify;'> Follow the below instructions step-by-step, to set up and run the motor control demo application:</p>
 
-1. <p style='text-align: leftjustify;'> Launch MATLAB (refer the section “[2.2 Sofware Tools Used for Testing the MATLAB/Simulink Model](#22-software-tools-used-for-testing-the-matlabsimulink-model).</p> 
-2.	<p style='text-align: justify;'> Open the folder dowmloaded from the repository, in which MATLAB files are saved (refer the section "[2.1 MATLAB Model Required for the Demonstration](#21-matlab-model-required-for-the-demonstration)).
+1. Launch MATLAB (refer the section “[2.2 Sofware Tools Used for Testing the MATLAB/Simulink Model](#22-software-tools-used-for-testing-the-matlabsimulink-model).</p> 
+2. Open the folder dowmloaded from the repository, in which MATLAB files are saved (refer the section "[2.1 MATLAB Model Required for the Demonstration](#21-matlab-model-required-for-the-demonstration)).
 
-<p align="left">
-<img src="images/dem1.png"></p>
-<br />
+    <p align="center" >
+    <img  src="images/dem1.png"></p>
 
-3.	Double click and open the .m file. This .m file contains the configuration parameter for the motor (and board) and presently set for Hurst 300 (AC300022) and LVMC board. Run the file by clicking the “Run” icon and wait till all variables gets loaded on the ‘Workspace’ tab.
-<br />
+3.	<p style='text-align: justify;'> Double click and open the .m file. This .m file contains the configuration parameter for the motor and board. By default the .m file is configured to run Hurst 300 motor and LVMC board. Run the file by clicking the “Run” icon and wait till all variables gets loaded on the ‘Workspace’ tab.
 
     <p align="center">
       <img  src="images/dem2.png"></p>
-    <p align = "center"><font size="2"> 
     </p>
 
-4.	Double click on the .slx file to open the Simulink model.
-<br />
+4.	<p style='text-align: justify;'>Double click on the Sensorless FOC Simulink model.
 
     <p align="center">
       <img  src="images/dem3.png"></p>
-    <p align = "center"><font size="2"> 
     </p>
 
-5.	This opens the Simulink model as shown in the below figure. Click on the "Run" icon to start the simulation.
-<br />
+5.	<p style='text-align: justify;'>This opens the Simulink model as shown in the below figure. Click on the "Run" icon to start the simulation.
 
     <p align="center">
       <img  src="images/dem4.png"></p>
-    <p align = "center"><font size="2"> 
     </p>
 
-6.	To plot the simulation result regarding the motor reference and estimated speeds are Data Inspector can be used (refer figure below). (To observe the other signals, log the signal as per the requirement), or alternatively normal Simulink Scope can be used.
-<br />
+6.	<p style='text-align: justify;'>To plot the simulation result, Data Inspector can be used (refer figure below). To observe the additional signals, log them as required. Alternatively, normal Simulink Scope can be used to plot the signals.
 
     <p align="center">
       <img  src="images/dem5.png"></p>
-    <p align = "center"><font size="2"> 
     </p>
 
-7.	For generating the code from the Simulink model and run the physical permanent magnet synchronous motor, go to MICROCHIP tab, and enable the tabs shown in the figure below. This will select the Programmer
-<br />
+7.	<p style='text-align: justify;'>From this Simulink model an MPLAB X project can be generated, and it can be used to run the PMSM motor using LVMC board. <p style='text-align: justify;'>To generate the code from the Simulink model, go to the MICROCHIP tab, and enable the tabs shown in the figure below. 
 
     <p align="center">
       <img  src="images/pic12.png"></p>
-    <p align = "center"><font size="2"> 
     </p>
 
-8.	Click on the ‘Apps’ tab on the menu bar and open ‘Embedded Code’.
-<br />
+8.	<p style='text-align: justify;'>	To generate the code and run the motor, click on ‘Build Model’ or ‘Clean Build Model’ option under the “Microchip” tab. This will generate the MPLAB X project from the Simulink model and program the dsPIC33CK256MP508 device.
 
     <p align="center">
-      <img  src="images/pic13.png"></p>
-    <p align = "center"><font size="2"> 
+      <img  src="images/demo8.png"></p>
     </p>
 
-9.	The ‘C Code’ tab will appear on the menu bar, then click on ‘Build’ to build, generate, and flash the code.
-<br />
-
-    <p align="center">
-      <img  src="images/pic14.png"></p>
-    <p align = "center"><font size="2"> 
-    </p>
-
-10.	The MPLAB project will be generated from the Simulink and flashed into the dsPIC. After the successful completion of the process, ‘Operation Succeeded’ message will be displayed on the ‘Diagnostics Viewer’.
-<br />
+10.	<p style='text-align: justify;'>After completing the process, the ‘Operation Succeeded’ message will be displayed on the ‘Diagnostics Viewer’.
 
     <p align="center">
       <img  src="images/pic15.png"></p>
-    <p align = "center"><font size="2"> 
     </p>
 
-11.	Alternatively, the model can be build using ‘Build Model’ or ‘Clean Build Model’ option under the “Microchip” tab.
-<br />
-
-    <p align="center">
-      <img  src="images/pic16_17.png"></p>
-    <p align = "center"><font size="2"> 
-    </p>
-
-12.	If the device is successfully programmed, LED- LD10 and LD11 will be blinking, indicating that the dsPIC® DSC is enabled.
+12.	If the device is successfully programmed, LED- LD10 and LD11 will be blinking.
 
 13.	To Run the motor, press the push button SW1.
-<br />
 
-<p align="center">
-  <img  src="images/pic18.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic18.png"></p> 
+    </p>
 
 14.	The motor speed can be varied using the potentiometer (labeled “POT1”).
-<br />
 
-<p align="center">
-  <img  src="images/pic19.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic19.png"></p>
+    </p>
 
 15.	Press the push button SW1 to stop the motor.
-<br />
 
-<p align="center">
-  <img  src="images/pic20.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic20.png"></p>
+    </p>
 
-## 5.	DATA VISUALIZATION THROUGH MOTOR CONTROL BLOCKSET (MCB) HOST
-The application firmware comes with initialization required to interface Controller with Host PC to enable Data visualization through MCB Host Model. MCB Host Model is Simulink model which facilitates real-time diagnostics.
-1.	To utilize MCB Host model communication for this demonstration, connect a micro-USB cable between the Host PC and the dsPIC33CK LVMC Board (J13 connector). This interface is used for programming as well. (Alternatively Connect a micro-USB cable from your computer to the J6 connector of the dsPIC33CK Low Voltage Motor Control Board).
-<br />
+## 5.	DATA VISUALIZATION USING MOTOR CONTROL BLOCKSET (MCB) HOST MODEL
+<p style='text-align: justify;'>The Sensorless FOC model comes with the initialization required for data visualization using Motor Control Blockset Host Model (MCB Host Model). The MCB Host Model is a Simulink model which facilitates data visualization through the UART Serial Interface. 
 
+1.	<p style='text-align: justify;'>To utilize MCB Host model communication for this demonstration, connect a micro-USB cable between the Host PC and the dsPIC33CK LVMC Board (J13 connector). This interface is used for programming as well. (Alternatively Connect a micro-USB cable from your computer to the J6 connector of the dsPIC33CK Low Voltage Motor Control Board).
     <p align="center">
       <img  src="images/pic21.png"></p>
     <p align = "center"><font size="2"> 
     </p>
 
-2.	Open the mcb_host program (.slx file) and double click on the “serial setup” block. Then select the appropriate COM port connected to the hardware from the drop-down menu and set the baud rate as 921600. Please note that the same baud rate is required to be chosen in the main model (baud rate can be verified on the “UART Configuration block” in the “Hardware Init” subsystem).
-<br />
+2.	<p style='text-align: justify;'>Open the mcb_host program (.slx file) and double click on the “serial setup” block. Then select the appropriate COM port connected to the hardware from the drop-down menu and set the baud rate as 921600. Please note that the same baud rate is required to be chosen in the main model (baud rate can be verified on the “UART Configuration block” in the “Hardware Init” subsystem).
 
     <p align="center">
       <img  src="images/pic22.png"></p>
     <p align = "center"><font size="2"> 
     </p>
 
-3.	Then, double click on the “UART_Rx” it will open another window where “Host Serial Receive” block is required to setup. Double click on “Host Serial Receive” block and set the COM port, same as before from the drop-down menu. 
-<br />
+3.	<p style='text-align: justify;'>Then, double click on the “UART_Rx” it will open another window where “Host Serial Receive” block is required to setup. Double click on “Host Serial Receive” block and set the COM port, same as before from the drop-down menu. 
 
     <p align="center">
       <img  src="images/pic23.png"></p>
     <p align = "center"><font size="2"> 
     </p>
 
-4.	After setting the serial setup, make sure that the motor is running (by following step 8-15 under Basic Demonstration), now click the run icon of the mcb_host program. One scope window will open automatically where signals can be visualized.
-<br />
+4.	<p style='text-align: justify;'>After setting the serial setup, make sure that the motor is running (by following step 8-15 under Basic Demonstration), now click the run icon of the mcb_host program. One scope window will open automatically where signals can be visualized.
 
     <p align="center">
       <img  src="images/pic24.png"></p>
     <p align = "center"><font size="2"> 
     </p>
 
-5.	In the figure below, one example is shown where two signals (estimated and reference speeds) have been plotted.
-<br />
+5.	<p style='text-align: justify;'>In the figure below, one example is shown where two signals (estimated and reference speeds) have been plotted.
 
     <p align="center">
       <img  src="images/pic25.png"></p>
@@ -216,6 +173,8 @@ The application firmware comes with initialization required to interface Control
 ## 	REFERENCES:
 For more information, refer to the following documents or links.
 1.	AN1078 Application Note “Sensorless Field Oriented Control of a PMSM”.
-2.	DsPIC33CK LVMC Board User’s Guide (DS50003297) 
-3.	MPLAB® X IDE installation
-4.	MPLAB® XC16 Compiler installation
+2.	dsPIC33CK LVMC Board User’s Guide (DS50003297) 
+3.	[MPLAB® X IDE installation](https://microchipdeveloper.com/mplabx:installation)
+4.	[MPLAB® XC16 Compiler installation](https://microchipdeveloper.com/mplabx:installation)
+5.  [Motor Control Blockset](https://in.mathworks.com/help/mcb/)
+6.  [MPLAB Device Blocks for Simulink :dsPIC, PIC32 and SAM mcu](https://microchipdeveloper.com/mplabx:installation)
