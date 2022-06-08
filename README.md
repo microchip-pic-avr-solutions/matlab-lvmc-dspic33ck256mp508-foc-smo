@@ -1,6 +1,6 @@
-![image](images/microchip.jpg) 
+![image](images/microchip.png) 
 
-# LVMC dsPIC33CK256MP508 AN1078
+# MATLAB LVMC dsPIC33CK256MP508 FOC SMO
 
 ## 1. INTRODUCTION
 <p style='text-align: justify;'>
@@ -19,24 +19,24 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 2.	XC16 compiler (v2.00)
 3.	MATLAB R2022a
 4.	MATLAB Add-on Packages required
--	 Simulink
--	Simulink Coder
--	Stateflow
--	MATLAB Coder
--	Embedded Coder (v7.8)
--	MPLAB Device blocks for Simulink (v3.50.24)
-- Motor Control Blockset (v1.4)
+    -	Simulink
+    -	Simulink Coder
+    -	Stateflow
+    -	MATLAB Coder
+    -	Embedded Coder (v7.8)
+    -	MPLAB Device blocks for Simulink (v3.50.24)
+    - Motor Control Blockset (v1.4)
 
 > **_NOTE:_**
 >The software used for testing the model during release is listed above. It is rec-ommended to use the version listed above or later versions for building the model.
 
 ### 2.3	Hardware Tools Required for the Demonstration
-- dsPIC33CK Low Voltage Motor Control (LVMC) Development Board (DM330031)
-- 24V Power Supply (AC002013) 
-- 24V, 3-Phase Brushless DC Permanent Magnet Hurst Motor (AC300022)
+- dsPIC33CK Low Voltage Motor Control (LVMC) Development Board ([DM330031](https://www.microchip.com/en-us/development-tool/DM330031))
+- 24V Power Supply ([AC002013](https://www.microchipdirect.com/dev-tools/AC002013)) 
+- 24V, 3-Phase Brushless DC Permanent Magnet Hurst Motor ([AC300022](https://www.microchip.com/en-us/development-tool/AC300022))
 
 > **_NOTE:_**
->All items listed under this section Hardware Tools Required for the Demonstration are available at microchip DIRECT.
+>All items listed under this section Hardware Tools Required for the Demonstration are available at [microchip DIRECT](https://www.microchipdirect.com/).
 
   
 ## 3. HARDWARE SETUP
@@ -44,118 +44,118 @@ This section describes the hardware setup needed for the demonstration.
 1. Connect the 3-phase wires from the motor to PHC, PHB, and PHA of the J14 connector (no specific order), provided on the dsPIC33CK LVMC Board.
 <br />
 
-<p align="center">
-  <img  src="images/pic1.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic1.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 2. Plug in the 24V power supply to connector J1 provided on the dsPIC33CK LVMC Board. Al-ternatively, the Inverter Board can also be powered through Connector J2.
 <br />
 
-<p align="center">
-  <img  src="images/pic2.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic2.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 3. The board has an onboard programmer ‘PICKIT™ On Board (PKOBv4)”, which can be used for programming or debugging the dsPIC33CK256MP508. To use an on-board programmer, connect a micro-USB cable between Host PC and Micro USB connector J13 provided on the dsPIC33CK LVMC Board.
 <br />
 
-<p align="center">
-  <img  src="images/pic3.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic3.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 4. Alternatively, the device can also be programmed using the programmer/debugger (MPLAB® PICkit™ 4 In-Circuit Debugger - PG164140) by interfacing it through connector J10 of the dsPIC33CK LVMC Board as shown below. Ensure that the programmer is oriented correctly before proceeding.
 <br />
 
-<p align="center">
-  <img  src="images/pic4_5.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic4_5.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 
 ## 4.	BASIC DEMONSTRATION
 Follow the below instructions step by step, to set up and run the motor control demo application:
-1.	Launch MATLAB version specified under the section “2. SOFTWARE TO BE INSTALLED” 
+1.	Launch MATLAB version specified under the section “[2. SOFTWARE TO BE INSTALLED](#22-software-tools-used-for-testing-the-firmware)” 
 2.	Open the folder in which MATLAB files (.slx and .m extensions) for sensorless (SMO) FOC is saved.
 <br />
 
-<p align="center">
-  <img  src="images/pic6.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/dem1.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 3.	Double click and open the .m file. This .m file contains the configuration parameter for the motor (and board) and presently set for Hurst 300 (AC300022) and LVMC board. Run the file by clicking the “Run” icon and wait till all variables gets loaded on the ‘Workspace’ tab.
 <br />
 
-<p align="center">
-  <img  src="images/pic7.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/dem2.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 4.	Double click on the .slx file to open the Simulink model.
 <br />
 
-<p align="center">
-  <img  src="images/pic8.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/dem3.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
-5.	This opens the Simulink model as shown in the below figure. 
+5.	This opens the Simulink model as shown in the below figure. Click on the "Run" button to run the simulation.
 <br />
 
-<p align="center">
-  <img  src="images/pic9.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/dem4.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
-6.	To plot the simulation result regarding the motor reference and estimated speeds, Data Inspector can be used (refer figure below). (To observe the other signals, log the signal as per the requirement), or alternatively normal Simulink Scope can be used.
+6.	To plot the simulation result regarding the motor reference and estimated speeds are Data Inspector can be used (refer figure below). (To observe the other signals, log the signal as per the requirement), or alternatively normal Simulink Scope can be used.
 <br />
 
-<p align="center">
-  <img  src="images/pic10_11.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/dem5.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 7.	For generating the code from the Simulink model and run the physical permanent magnet synchronous motor, go to MICROCHIP tab, and enable the tabs shown in the figure below. This will select the Programmer
 <br />
 
-<p align="center">
-  <img  src="images/pic12.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic12.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 8.	Click on the ‘Apps’ tab on the menu bar and open ‘Embedded Code’.
 <br />
 
-<p align="center">
-  <img  src="images/pic13.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic13.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 9.	The ‘C Code’ tab will appear on the menu bar, then click on ‘Build’ to build, generate, and flash the code.
 <br />
 
-<p align="center">
-  <img  src="images/pic14.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic14.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 10.	The MPLAB project will be generated from the Simulink and flashed into the dsPIC. After the successful completion of the process, ‘Operation Succeeded’ message will be displayed on the ‘Diagnostics Viewer’.
 <br />
 
-<p align="center">
-  <img  src="images/pic15.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic15.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 11.	Alternatively, the model can be build using ‘Build Model’ or ‘Clean Build Model’ option under the “Microchip” tab.
 <br />
 
-<p align="center">
-  <img  src="images/pic16_17.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic16_17.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 12.	If the device is successfully programmed, LED- LD10 and LD11 will be blinking, indicating that the dsPIC® DSC is enabled.
 
@@ -188,42 +188,42 @@ The application firmware comes with initialization required to interface Control
 1.	To utilize MCB Host model communication for this demonstration, connect a micro-USB cable between the Host PC and the dsPIC33CK LVMC Board (J13 connector). This interface is used for programming as well. (Alternatively Connect a micro-USB cable from your computer to the J6 connector of the dsPIC33CK Low Voltage Motor Control Board).
 <br />
 
-<p align="center">
-  <img  src="images/pic21.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic21.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 2.	Open the mcb_host program (.slx file) and double click on the “serial setup” block. Then select the appropriate COM port connected to the hardware from the drop-down menu and set the baud rate as 921600. Please note that the same baud rate is required to be chosen in the main model (baud rate can be verified on the “UART Configuration block” in the “Hardware Init” subsystem).
 <br />
 
-<p align="center">
-  <img  src="images/pic22.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic22.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 3.	Then, double click on the “UART_Rx” it will open another window where “Host Serial Receive” block is required to setup. Double click on “Host Serial Receive” block and set the COM port, same as before from the drop-down menu. 
 <br />
 
-<p align="center">
-  <img  src="images/pic23.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic23.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 4.	After setting the serial setup, make sure that the motor is running (by following step 8-15 under Basic Demonstration), now click the run icon of the mcb_host program. One scope window will open automatically where signals can be visualized.
 <br />
 
-<p align="center">
-  <img  src="images/pic24.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic24.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 5.	In the figure below, one example is shown where two signals (estimated and reference speeds) have been plotted.
 <br />
 
-<p align="center">
-  <img  src="images/pic25.png"></p>
- <p align = "center"><font size="2"> 
-</p>
+    <p align="center">
+      <img  src="images/pic25.png"></p>
+    <p align = "center"><font size="2"> 
+    </p>
 
 
 ## 	REFERENCES:
