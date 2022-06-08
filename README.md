@@ -4,7 +4,7 @@
 
 ## 1. INTRODUCTION
 <p style='text-align: justify;'>
-This document describes the setup requirements for running the Sensorless FOC algorithm with a Sliding Mode Observer (SMO), using MATLAB Simulink and dsPIC33CK Low Voltage Motor Con-trol (LVMC) Board.</p>
+This document describes the setup requirements for running the Sensorless FOC algorithm with a Sliding Mode Observer (SMO), using MATLAB/Simulink and dsPIC33CK Low Voltage Motor Control (LVMC) Board.</p>
 <p style='text-align: justify;'>
 The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Control of a PMSM”.
 </p>
@@ -12,13 +12,13 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 ## 2.	SUGGESTED DEMONSTRATION REQUIREMENTS
 ### 2.1 MATLAB Model Required for the Demonstration
 
-<p style='text-align: justify;'>To clone or download this MATLAB model from Github, go to the main page of this reposi-tory and then click Clone button to clone this repository or download as zip file.</p>
+<p style='text-align: justify;'> MATLAB model is cloned or downloaded as zip file from the Github repository ([link](https://github.com/microchip-pic-avr-solutions/matlab-lvmc-dspic33ck256mp508-foc-smo)).
 
-### 2.2	Software Tools Used for Testing the firmware
+### 2.2	Software Tools Used for Testing the MATLAB?Simulink Model
 1.	MPLAB X IDE and IPE (v6.0)
 2.	XC16 compiler (v2.00)
 3.	MATLAB R2022a
-4.	MATLAB Add-on Packages required
+4.	Required MATLAB add-on packages
     -	Simulink
     -	Simulink Coder
     -	Stateflow
@@ -28,7 +28,7 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
     - Motor Control Blockset (v1.4)
 
 > **_NOTE:_**
->The software used for testing the model during release is listed above. It is rec-ommended to use the version listed above or later versions for building the model.
+>The software used for testing the model during release is listed above. It is recommended to use the version listed above or later versions for building the model.
 
 ### 2.3	Hardware Tools Required for the Demonstration
 - dsPIC33CK Low Voltage Motor Control (LVMC) Development Board ([DM330031](https://www.microchip.com/en-us/development-tool/DM330031))
@@ -40,50 +40,37 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 
   
 ## 3. HARDWARE SETUP
-This section describes the hardware setup needed for the demonstration. 
-1. Connect the 3-phase wires from the motor to PHC, PHB, and PHA of the J14 connector (no specific order), provided on the dsPIC33CK LVMC Board.
-<br />
+<p style='text-align: justify;'>This section describes hardware setup required for the demonstration.</p>
 
-    <p align="center">
-      <img  src="images/pic1.png"></p>
-    <p align = "center"><font size="2"> 
-    </p>
+1. <p style='text-align: justify;'> Connect the 3-phase wires from the motor to PHC, PHB, and PHA of the J14 connector (no specific order), provided on the dsPIC33CK LVMC Board.</p>
 
-2. Plug in the 24V power supply to connector J1 provided on the dsPIC33CK LVMC Board. Al-ternatively, the Inverter Board can also be powered through Connector J2.
-<br />
+    <p align="center" >
+    <img  src="images/pic1.png"></p>
 
-    <p align="center">
-      <img  src="images/pic2.png"></p>
-    <p align = "center"><font size="2"> 
-    </p>
+2. <p style='text-align: justify;'> Plug in the 24V power supply to connector J1 provided on the dsPIC33CK LVMC Board. Al-ternatively, the Inverter Board can also be powered through Connector J2.</p>
 
-3. The board has an onboard programmer ‘PICKIT™ On Board (PKOBv4)”, which can be used for programming or debugging the dsPIC33CK256MP508. To use an on-board programmer, connect a micro-USB cable between Host PC and Micro USB connector J13 provided on the dsPIC33CK LVMC Board.
-<br />
+    <p align="center" >
+    <img  src="images/pic2.png"></p>
 
-    <p align="center">
-      <img  src="images/pic3.png"></p>
-    <p align = "center"><font size="2"> 
-    </p>
+3. <p style='text-align: justify;'> The board has an onboard programmer ‘PICkit™ On Board (PKOBv4)”, which can be used for programming or debugging the dsPIC33CK256MP508. To use an on-board programmer, connect a micro-USB cable between Host PC and Micro USB connector J13 provided on the dsPIC33CK LVMC Board.</p>
 
-4. Alternatively, the device can also be programmed using the programmer/debugger (MPLAB® PICkit™ 4 In-Circuit Debugger - PG164140) by interfacing it through connector J10 of the dsPIC33CK LVMC Board as shown below. Ensure that the programmer is oriented correctly before proceeding.
-<br />
+    <p align="center" >
+    <img  src="images/pic3.png"></p>
 
-    <p align="center">
-      <img  src="images/pic4_5.png"></p>
-    <p align = "center"><font size="2"> 
-    </p>
+4. <p style='text-align: justify;'>	Alternatively, the device can also be programmed using the programmer/debugger (MPLAB® PICkit™ 4 In-Circuit Debugger - PG164140) by interfacing it through connector J10 of the dsPIC33CK LVMC Board, as shown below. Ensure that the programmer is oriented correctly before proceeding.</p>
 
+    <p align="center" >
+    <img  src="images/pic4_5.png"></p>
 
 ## 4.	BASIC DEMONSTRATION
-Follow the below instructions step by step, to set up and run the motor control demo application:
-1.	Launch MATLAB version specified under the section “[2. SOFTWARE TO BE INSTALLED](#22-software-tools-used-for-testing-the-firmware)” 
-2.	Open the folder in which MATLAB files (.slx and .m extensions) for sensorless (SMO) FOC is saved.
-<br />
+<p style='text-align: justify;'> Follow the below instructions step-by-step, to set up and run the motor control demo application:</p>
 
-    <p align="center">
-      <img  src="images/dem1.png"></p>
-    <p align = "center"><font size="2"> 
-    </p>
+1. <p style='text-align: leftjustify;'> Launch MATLAB (refer the section “[2.2 Sofware Tools Used for Testing the MATLAB/Simulink Model](#22-software-tools-used-for-testing-the-matlabsimulink-model).</p> 
+2.	<p style='text-align: justify;'> Open the folder dowmloaded from the repository, in which MATLAB files are saved (refer the section "[2.1 MATLAB Model Required for the Demonstration](#21-matlab-model-required-for-the-demonstration)).
+
+<p align="left">
+<img src="images/dem1.png"></p>
+<br />
 
 3.	Double click and open the .m file. This .m file contains the configuration parameter for the motor (and board) and presently set for Hurst 300 (AC300022) and LVMC board. Run the file by clicking the “Run” icon and wait till all variables gets loaded on the ‘Workspace’ tab.
 <br />
@@ -101,7 +88,7 @@ Follow the below instructions step by step, to set up and run the motor control 
     <p align = "center"><font size="2"> 
     </p>
 
-5.	This opens the Simulink model as shown in the below figure. Click on the "Run" button to run the simulation.
+5.	This opens the Simulink model as shown in the below figure. Click on the "Run" icon to start the simulation.
 <br />
 
     <p align="center">
