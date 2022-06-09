@@ -43,10 +43,7 @@
          "SMO",
 		 "FOC",
 		 "Sensorless",
-		 "PMSM",
-         "ADC",
-		 "PWM",
-		 "UART"		 
+		 "PMSM" 
       ]
    }
 }
