@@ -39,9 +39,7 @@
          }
       },
       "keywords":[
-         "Motor Control",
-		 "FOC",
-		 "PMSM" 
+         "Motor Control"
       ]
    }
 }
