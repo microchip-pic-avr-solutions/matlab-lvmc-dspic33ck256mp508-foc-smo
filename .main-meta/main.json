@@ -12,13 +12,13 @@
          "name":"MATLAB/Simulink",
          "semverRange":">=2022"
       },
-	  "addonPackages":[
-				"MATLAB add on packages",
-				"Simulink",
-				"MPLAB Device blocks for Simulink",
-				"Motor Control Blockset",
-				"Embedded Coder",
-				"Fixed-Point Designer"
+      "addonPackages":[
+                "MATLAB add on packages",
+                "Simulink",
+                "MPLAB Device blocks for Simulink",
+                "Motor Control Blockset",
+                "Embedded Coder",
+                "Fixed-Point Designer"
       ],
       "compiler":{
          "name":"XC16",
@@ -40,13 +40,12 @@
       },
       "keywords":[
          "Motor Control",
-		 "SMO",
-		 "FOC",
-		 "Sensorless",
-		 "PMSM",
+         "FOC",
+         "Sensorless Control",
+         "PMSM",
          "ADC",
-		 "PWM",
-		 "UART"		 
+         "PWM",
+         "UART"
       ]
    }
 }
