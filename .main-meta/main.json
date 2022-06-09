@@ -38,8 +38,15 @@
             "versionRange":"*"
          }
       },
+	  "peripherals":[
+         "GPIO",
+         "ADC",
+         "PWM",
+         "UART"
+      ],
       "keywords":[
-         "Motor Control"
+         "Motor Control",
+         "FOC"
       ]
    }
 }
