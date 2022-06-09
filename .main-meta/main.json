@@ -39,14 +39,12 @@
          }
       },
 	  "peripherals":[
-         "GPIO",
          "ADC",
          "PWM",
          "UART"
       ],
       "keywords":[
-         "Motor Control",
-         "FOC"
+         "Motor Control"
       ]
    }
 }
