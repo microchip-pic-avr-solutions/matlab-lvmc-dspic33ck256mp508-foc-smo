@@ -7,18 +7,18 @@
       "version":"1.0.0",
       "displayName":"MATLAB-Simulink model for Sensorless FOC control using Sliding mode observer (SMO)",
       "projectName":"matlab-lvmc-dspic33ck256mp508-foc-smo",
-      "shortDescription":"MATLAB FOC model with SMO using dsPIC33CK LVMC",
-      "ide":{
+      "shortDescription":"MATLAB-Simulink model for Sensorless FOC control using Sliding mode observer (SMO)",
+	  "simulationTool":{
          "name":"MATLAB/Simulink",
          "semverRange":">=2022"
       },
-      "addonPackages":[
-                "MATLAB add on packages",
-                "Simulink",
-                "MPLAB Device blocks for Simulink",
-                "Motor Control Blockset",
-                "Embedded Coder",
-                "Fixed-Point Designer"
+	  "addonPackages":[
+				"MATLAB add on packages",
+				"Simulink",
+				"MPLAB Device blocks for Simulink",
+				"Motor Control Blockset",
+				"Embedded Coder",
+				"Fixed-Point Designer"
       ],
       "compiler":{
          "name":"XC16",
@@ -40,12 +40,12 @@
       },
       "keywords":[
          "Motor Control",
-         "FOC",
-         "Sensorless Control",
-         "PMSM",
+		 "FOC",
+		 "Sensorless",
+		 "PMSM",
          "ADC",
-         "PWM",
-         "UART"
+		 "PWM",
+		 "UART"		 
       ]
    }
 }
