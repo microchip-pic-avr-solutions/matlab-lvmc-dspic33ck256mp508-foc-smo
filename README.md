@@ -154,7 +154,7 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
       <img  src="images/host4.png"></p>
     </p>
 
-5.	<p style='text-align: justify;'>After setting the serial setup, make sure that the motor is running (by following step 8-15 under Basic Demonstration), now click the run icon of the mcb_host program. One scope window will open automatically where signals can be visualized.
+5.	<p style='text-align: justify;'>Click the run icon of the MCB Host model to open the scope window and monitor the signals.
 
     <p align="left">
       <img  src="images/host5.png"></p>
