@@ -40,9 +40,7 @@
       },
       "keywords":[
          "Motor Control",
-         "SMO",
 		 "FOC",
-		 "Sensorless",
 		 "PMSM" 
       ]
    }
