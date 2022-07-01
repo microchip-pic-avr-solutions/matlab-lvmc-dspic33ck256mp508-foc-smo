@@ -1,25 +1,17 @@
 {
    "metaDataVersion":"1.0.0",
-   "category":"com.microchip.matlab.project",
+   "category":"com.microchip.ide.project",
    "content":{
-      "metaDataVersion":"1.0.0",
-      "name":"com.microchip.matlab.project.matlab-lvmc-dspic33ck256mp508-foc-smo",
+      "metaDataVersion":"1.3.0",
+      "name":"com.microchip.mplabx.project.matlab-lvmc-dspic33ck256mp508-foc-smo",
       "version":"1.0.0",
       "displayName":"MATLAB-Simulink model for Sensorless FOC control using Sliding mode observer (SMO)",
       "projectName":"matlab-lvmc-dspic33ck256mp508-foc-smo",
       "shortDescription":"MATLAB-Simulink model for Sensorless FOC control using Sliding mode observer (SMO)",
-	  "simulationTool":{
-         "name":"MATLAB/Simulink",
-         "semverRange":">=2022"
+     "ide":{
+         "name":"MPLABX",
+         "semverRange":">=5.40.0"
       },
-	  "addonPackages":[
-				"MATLAB add on packages",
-				"Simulink",
-				"MPLAB Device blocks for Simulink",
-				"Motor Control Blockset",
-				"Embedded Coder",
-				"Fixed-Point Designer"
-      ],
       "compiler":{
          "name":"XC16",
          "semverRange":"^2.0.0"
@@ -44,7 +36,8 @@
          "UART"
       ],
       "keywords":[
-         "Motor Control"
+         "Motor Control",
+		 "FOC"
       ]
    }
 }
