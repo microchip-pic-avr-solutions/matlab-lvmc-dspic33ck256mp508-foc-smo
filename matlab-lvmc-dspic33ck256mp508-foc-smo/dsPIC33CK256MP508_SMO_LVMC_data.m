@@ -20,6 +20,9 @@ Ts_speed        = 30*Ts;        %Sec        // Sample time for speed controller
 %% Set data type for controller & code-gen
 dataType = fixdt(1,16,14);    % Fixed point code-generation
 dataType2 = fixdt(1,16,12);    % Fixed point code-generation
+Typecast_BEMF = fixdt(1,16,8);
+Typecast_ci = fixdt(1,16,11);
+Typecast_di = fixdt(1,16,10);
 
 %% System Parameters
 % Set motor parameters
