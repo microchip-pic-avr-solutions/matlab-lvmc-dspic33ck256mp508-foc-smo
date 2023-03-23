@@ -77,5 +77,5 @@ PI_params.delay_Speed1       = (PI_params.delay_IIR + 0.5*Ts)/Ts_speed;
 
 %% Open loop reference values
 T_Ref_openLoop          = 1;                    % Sec // Time for open-loop start-up
-Speed_Ref_openLoop      = 500;                  % RPM // Speed referene for open-loop start-up
-Iq_Ref_openLoop         = 0.75;                 % A   // Iq referene for open-loop start-up
+Speed_Ref_openLoop      = 700;                  % RPM // Speed referene for open-loop start-up
+Iq_Ref_openLoop         = 1;                 % A   // Iq referene for open-loop start-up
