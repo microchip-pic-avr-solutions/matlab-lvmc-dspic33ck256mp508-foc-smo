@@ -20,6 +20,9 @@ Ts_speed        = 30*Ts;        %Sec        // Sample time for speed controller
 %% Set data type for controller & code-gen
 dataType = fixdt(1,16,14);    % Fixed point code-generation
 dataType2 = fixdt(1,16,12);    % Fixed point code-generation
+Typecast_BEMF = fixdt(1,16,8);
+Typecast_ci = fixdt(1,16,11);
+Typecast_di = fixdt(1,16,10);
 
 %% System Parameters
 % Set motor parameters
@@ -35,7 +38,7 @@ pmsm.Kt = 0.274;                %Nm/A       // Torque constant
 pmsm.J = 7.061551833333e-6;     %Kg-m2      // Inertia in SI units
 pmsm.B = 2.636875217824e-6;     %Kg-m2/s    // Friction Co-efficient
 pmsm.I_rated  = 3.42*sqrt(2);   %A      	// Rated current (phase-peak)
-pmsm.N_max    = 2000;           %rpm        // Max speed
+pmsm.N_max    = 2896;           %rpm        // Max speed
 pmsm.FluxPM   = (pmsm.Ke)/(sqrt(3)*2*pi*1000*pmsm.p/60); %PM flux computed from Ke
 pmsm.T_rated  = (3/2)*pmsm.p*pmsm.FluxPM*pmsm.I_rated;   %Get T_rated from I_rated
 
@@ -70,9 +73,9 @@ PI_params = mcb.internal.SetControllerParameters(pmsm,inverter,PU_System,T_pwm,T
 PI_params.delay_Currents    = int32(Ts/Ts_simulink);
 PI_params.delay_Position    = int32(Ts/Ts_simulink);
 PI_params.delay_Speed       = int32(Ts_speed/Ts_simulink);
-PI_params.delay_Speed1       = (PI_params.delay_IIR + 0.5*Ts)/Ts_speed;
+PI_params.delay_Speed1      = (PI_params.delay_IIR + 0.5*Ts)/Ts_speed;
 
 %% Open loop reference values
 T_Ref_openLoop          = 1;                    % Sec // Time for open-loop start-up
-Speed_Ref_openLoop      = 500;                  % RPM // Speed referene for open-loop start-up
-Iq_Ref_openLoop         = 0.75;                 % A   // Iq referene for open-loop start-up
+Speed_Ref_openLoop      = 700;                  % RPM // Speed referene for open-loop start-up
+Iq_Ref_openLoop         = 1;                 % A   // Iq referene for open-loop start-up
