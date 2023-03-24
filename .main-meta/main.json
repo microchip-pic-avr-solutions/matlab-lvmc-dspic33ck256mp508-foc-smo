@@ -4,7 +4,7 @@
    "content":{
       "metaDataVersion":"1.0.0",
       "name":"com.microchip.matlab.project.matlab-lvmc-dspic33ck256mp508-foc-smo",
-      "version":"1.0.0",
+      "version":"1.0.1",
       "displayName":"MATLAB-Simulink model for Sensorless FOC control using Sliding mode observer (SMO)",
       "projectName":"matlab-lvmc-dspic33ck256mp508-foc-smo",
       "shortDescription":"MATLAB-Simulink model for Sensorless FOC control using Sliding mode observer (SMO)",

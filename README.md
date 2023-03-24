@@ -14,17 +14,17 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 -  MATLAB model can be cloned or downloaded as zip file from the Github repository ([link](https://github.com/microchip-pic-avr-solutions/matlab-lvmc-dspic33ck256mp508-foc-smo)).
 
 ### 2.2	Software Tools Used for Testing the MATLAB/Simulink Model
-1.	MPLAB X IDE and IPE (v6.0)
-2.	XC16 compiler (v2.00)
-3.	MATLAB R2022a
+1.	MPLAB X IDE and IPE (v5.50)
+2.	XC16 compiler (v1.70)
+3.	MATLAB R2022b
 4.	Required MATLAB add-on packages
-    -	Simulink
-    -	Simulink Coder
-    -	Stateflow
-    -	MATLAB Coder
-    -	Embedded Coder (v7.8)
-    -	MPLAB Device blocks for Simulink (v3.50.24)
-    - Motor Control Blockset (v1.4)
+    -	Simulink (v10.6)
+    -	Simulink Coder (v9.8)
+    -	Stateflow (v10.7)
+    -	MATLAB Coder (v5.5)
+    -	Embedded Coder (v7.9)
+    -	MPLAB Device blocks for Simulink (v3.50.35)
+    - Motor Control Blockset (v1.5)
 
 > **_NOTE:_**
 >The software used for testing the model during release is listed above. It is recommended to use the version listed above or later versions for building the model.
@@ -142,7 +142,7 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 
 2. Ensure the sensorless FOC model is programmed and running as described under section ["4. Basic Demonstration"](#4-basic-demonstration) by following steps 1 through 13.
 
-3. <p style='text-align: justify;'>Open the MCB Host model and double click on the <b>“Serial Setup”</b> block. Then select the appropriate COM port connected to the hardware from the drop-down menu and set the baud rate as 921659. Please note that the same baud rate is required to be chosen in the Sensorless FOC model (the baud rate can be viewed on the <b>“UART Configuration”</b> block in the <b>“Hardware Init”</b> subsystem).
+3. <p style='text-align: justify;'>Open the MCB Host model and double click on the <b>“Serial Setup”</b> block. Then select the appropriate COM port connected to the hardware from the drop-down menu and set the baud rate as 460829. Please note that the same baud rate is required to be chosen in the Sensorless FOC model (the baud rate can be viewed on the <b>“UART Configuration”</b> block inside <b>“LVMC Template”</b>).
 
     <p align="left">
       <img  src="images/host3.png"></p>
