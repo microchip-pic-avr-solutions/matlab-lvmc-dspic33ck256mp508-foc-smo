@@ -14,8 +14,8 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 -  MATLAB model can be cloned or downloaded as zip file from the Github repository ([link](https://github.com/microchip-pic-avr-solutions/matlab-lvmc-dspic33ck256mp508-foc-smo)).
 
 ### 2.2	Software Tools Used for Testing the MATLAB/Simulink Model
-1.	MPLAB X IDE and IPE (v5.50)
-2.	XC16 compiler (v1.70)
+1.	MPLAB X IDE and IPE (v6.00)
+2.	XC16 compiler (v2.00)
 3.	MATLAB R2022b
 4.	Required MATLAB add-on packages
     -	Simulink (v10.6)
