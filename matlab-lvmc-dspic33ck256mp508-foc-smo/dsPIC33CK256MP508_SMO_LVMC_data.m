@@ -38,25 +38,35 @@ pmsm.Kt = 0.274;                %Nm/A       // Torque constant
 pmsm.J = 7.061551833333e-6;     %Kg-m2      // Inertia in SI units
 pmsm.B = 2.636875217824e-6;     %Kg-m2/s    // Friction Co-efficient
 pmsm.I_rated  = 3.42*sqrt(2);   %A      	// Rated current (phase-peak)
-pmsm.N_max    = 2896;           %rpm        // Max speed
-pmsm.FluxPM   = (pmsm.Ke)/(sqrt(3)*2*pi*1000*pmsm.p/60); %PM flux computed from Ke
-pmsm.T_rated  = (3/2)*pmsm.p*pmsm.FluxPM*pmsm.I_rated;   %Get T_rated from I_rated
+pmsm.N_max    = 3200;           %rpm        // Max speed
+pmsm.N_rated  = 2896;           %rpm        // rated speed
+pmsm.f_rated  = (pmsm.N_rated*pmsm.p*2)/120;                %Hz    // Rated Frequency
+pmsm.w_rated_elec = pmsm.f_rated*2*pi;                      %rad/sec    // Rated electrical speed
+pmsm.w_base_elec = pmsm.w_rated_elec*1;                     %rad/sec    // Base electrical speed
+pmsm.FluxPM   = (pmsm.Ke)/(sqrt(3)*2*pi*1000*pmsm.p/60);    %PM flux computed from Ke
+pmsm.T_rated  = (3/2)*pmsm.p*pmsm.FluxPM*pmsm.I_rated;      %Get T_rated from I_rated
 
 %% Inverter parameters
 
-inverter.model         = 'dsPIC33CK_LVMC';          % 		// Manufacturer Model Number
-inverter.sn            = 'INV_XXXX';         		% 		// Manufacturer Serial Number
-inverter.V_dc          = 24;       					%V      // DC Link Voltage of the Inverter
-inverter.ISenseMax     = 21.85; 					%Amps   // Max current that can be measured
-inverter.I_trip        = 10;                  		%Amps   // Max current for trip
-inverter.Rds_on        = 1e-3;                      %Ohms   // Rds ON
-inverter.Rshunt        = 0.01;                      %Ohms   // Rshunt
+inverter.model         = 'dsPIC33CK_LVMC';              % 		// Manufacturer Model Number
+inverter.sn            = 'INV_XXXX';         		    % 		// Manufacturer Serial Number
+inverter.V_dc          = 24;       					    %V      // DC Link Voltage of the Inverter
+inverter.ISenseMax     = 21.85; 					    %Amps   // Max current that can be measured
+V_base                 = inverter.V_dc/sqrt(3); 	    %V      // Base voltage				
+i_base                 = inverter.ISenseMax;            %Amps   // Base voltage	
+z_base                 = V_base/i_base;                 %Ohms   // Base impedence
+L_base                 = z_base/pmsm.w_base_elec;       %Henry  // Base inductance
+pmsm.FluxPM_base       = V_base/pmsm.w_base_elec;       %Wb     // Base flux 
+pmsm.FluxPM_PU         = pmsm.FluxPM/pmsm.FluxPM_base;  %unitless // Perunit flux
+inverter.I_trip        = 10;                  		           %Amps   // Max current for trip
+inverter.Rds_on        = 1e-3;                                 %Ohms   // Rds ON
+inverter.Rshunt        = 0.01;                                 %Ohms   // Rshunt
 inverter.R_board       = inverter.Rds_on + inverter.Rshunt/3;  %Ohms
-inverter.MaxADCCnt     = 4095;      				%Counts // ADC Counts Max Value
-inverter.invertingAmp  = -1;                        % 		// Non inverting current measurement amplifier
-inverter.deadtime      = 1e-6;                      %sec    // Deadtime for the PWM 
-inverter.OpampFb_Rf    = 4.02e3;                    %Ohms   // Opamp Feedback resistance for current measurement
-inverter.opampInput_R  = 532;                       %Ohms   // Opamp Input resistance for current measurement
+inverter.MaxADCCnt     = 4095;      				    %Counts // ADC Counts Max Value
+inverter.invertingAmp  = -1;                            % 		// Non inverting current measurement amplifier
+inverter.deadtime      = 1e-6;                          %sec    // Deadtime for the PWM 
+inverter.OpampFb_Rf    = 4.02e3;                        %Ohms   // Opamp Feedback resistance for current measurement
+inverter.opampInput_R  = 532;                           %Ohms   // Opamp Input resistance for current measurement
 inverter.opamp_Gain    = inverter.OpampFb_Rf/inverter.opampInput_R; % // Opamp Gain used for current measurement
 
 %% Derive Characteristics
@@ -75,7 +85,12 @@ PI_params.delay_Position    = int32(Ts/Ts_simulink);
 PI_params.delay_Speed       = int32(Ts_speed/Ts_simulink);
 PI_params.delay_Speed1      = (PI_params.delay_IIR + 0.5*Ts)/Ts_speed;
 
+%% Field Weakining
+
+V_max       = (inverter.V_dc/sqrt(3))*0.9;
+Vs_max_pu   = V_max/PU_System.V_base;
+
 %% Open loop reference values
 T_Ref_openLoop          = 1;                    % Sec // Time for open-loop start-up
-Speed_Ref_openLoop      = 700;                  % RPM // Speed referene for open-loop start-up
-Iq_Ref_openLoop         = 1;                 % A   // Iq referene for open-loop start-up
+Speed_Ref_openLoop      = 1000;                  % RPM // Speed referene for open-loop start-up
+Iq_Ref_openLoop         = 0.55;                 % A   // Iq referene for open-loop start-up
