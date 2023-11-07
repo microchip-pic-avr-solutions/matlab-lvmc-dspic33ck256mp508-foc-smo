@@ -1,10 +1,10 @@
 ![image](images/microchip.png) 
 
-# MATLAB LVMC dsPIC33CK256MP508 FOC SMO
+# MATLAB LVMC dsPIC33CK256MP508 FOC with Field Weakening & SMO
 
 ## 1. INTRODUCTION
 <p style='text-align: justify;'>
-This document describes the setup requirements for running the Sensorless FOC algorithm with a Sliding Mode Observer (SMO), using MATLAB/Simulink and dsPIC33CK Low Voltage Motor Control (LVMC) Board.</p>
+This document describes the setup requirements for running the Sensorless FOC with field weakening algorithm and a Sliding Mode Observer (SMO), using MATLAB/Simulink and dsPIC33CK Low Voltage Motor Control (LVMC) Board.</p>
 <p style='text-align: justify;'>
 The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Control of a PMSM”.
 </p>
@@ -14,17 +14,17 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 -  MATLAB model can be cloned or downloaded as zip file from the Github repository ([link](https://github.com/microchip-pic-avr-solutions/matlab-lvmc-dspic33ck256mp508-foc-smo)).
 
 ### 2.2	Software Tools Used for Testing the MATLAB/Simulink Model
-1.	MPLAB X IDE and IPE (v6.00)
-2.	XC16 compiler (v2.00)
-3.	MATLAB R2022b
+1.	MPLAB X IDE and IPE (v6.15)
+2.	XC16 compiler (v2.10)
+3.	MATLAB R2023b
 4.	Required MATLAB add-on packages
-    -	Simulink (v10.6)
-    -	Simulink Coder (v9.8)
-    -	Stateflow (v10.7)
-    -	MATLAB Coder (v5.5)
-    -	Embedded Coder (v7.9)
-    -	MPLAB Device blocks for Simulink (v3.50.35)
-    - Motor Control Blockset (v1.5)
+    -	Simulink (v23.2)
+    -	Simulink Coder (v23.2)
+    -	Stateflow (v23.2)
+    -	MATLAB Coder (v23.2)
+    -	Embedded Coder (v23.2)
+    -	MPLAB Device blocks for Simulink (v3.51)
+    - Motor Control Blockset (v23.2)
 
 > **_NOTE:_**
 >The software used for testing the model during release is listed above. It is recommended to use the version listed above or later versions for building the model.
@@ -120,7 +120,7 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
       <img  src="images/pic18.png"></p> 
     </p>
 
-12.	The motor speed can be varied using the potentiometer (labeled <b>“POT1”</b>).
+12.	The motor speed can be varied using the potentiometer (labeled <b>“POT1”</b>). Approximately, after 70% of the full potentiometer value (approximately at 3000 RPM), the motor eneters into field weakening region.
 
     <p align="left">
       <img  src="images/pic19.png"></p>
