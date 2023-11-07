@@ -33,6 +33,7 @@ pmsm.p  = 5;                    %           // Pole Pairs for the motor
 pmsm.Rs = 0.285;                %Ohm        // Stator Resistor
 pmsm.Ld = 2.8698e-4;            %H          // D-axis inductance value
 pmsm.Lq = 2.8698e-4;            %H          // Q-axis inductance value
+pmsm.Lav= (pmsm.Ld+pmsm.Lq)/2;  %H          // Average inductance
 pmsm.Ke = 7.3425;               %Bemf Const	// Vline_peak/krpm
 pmsm.Kt = 0.274;                %Nm/A       // Torque constant
 pmsm.J = 7.061551833333e-6;     %Kg-m2      // Inertia in SI units
@@ -55,7 +56,9 @@ inverter.ISenseMax     = 21.85; 					    %Amps   // Max current that can be meas
 V_base                 = inverter.V_dc/sqrt(3); 	    %V      // Base voltage				
 i_base                 = inverter.ISenseMax;            %Amps   // Base voltage	
 z_base                 = V_base/i_base;                 %Ohms   // Base impedence
-L_base                 = z_base/pmsm.w_base_elec;       %Henry  // Base inductance
+pmsm.Rs_pu             = pmsm.Rs/z_base;                %unitless// Perunit resistance
+L_base                 = z_base/pmsm.w_base_elec;       %H      // Base inductance
+pmsm.Lav_pu            = pmsm.Lav/L_base;               %unitless// Perunit inductance
 pmsm.FluxPM_base       = V_base/pmsm.w_base_elec;       %Wb     // Base flux 
 pmsm.FluxPM_PU         = pmsm.FluxPM/pmsm.FluxPM_base;  %unitless // Perunit flux
 inverter.I_trip        = 10;                  		           %Amps   // Max current for trip
@@ -92,5 +95,5 @@ Vs_max_pu   = V_max/PU_System.V_base;
 
 %% Open loop reference values
 T_Ref_openLoop          = 1;                    % Sec // Time for open-loop start-up
-Speed_Ref_openLoop      = 1000;                  % RPM // Speed referene for open-loop start-up
+Speed_Ref_openLoop      = 700;                  % RPM // Speed referene for open-loop start-up
 Iq_Ref_openLoop         = 0.55;                 % A   // Iq referene for open-loop start-up
