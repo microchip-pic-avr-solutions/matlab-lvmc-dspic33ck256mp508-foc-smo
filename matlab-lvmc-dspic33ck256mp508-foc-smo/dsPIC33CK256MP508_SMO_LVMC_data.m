@@ -2,7 +2,7 @@
 % Model         :   Sensorless Field Oriented Control of PMSM Using SMO
 % Description   :   Set Parameters for Sensorless FOC of PMSM Using SMO
 % File name     :   dsPIC33CK256MP508_SMO_LVMC_data.m
-% Copyright 2022 Microchip Technology Inc.
+% Copyright 2023 Microchip Technology Inc.
 
 %% Simulation Parameters
 
