@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/microchip.png" alt="image"></p>
+<h1 id="matlab-lvmc-dspic33ck256mp508-foc-with-field-weakening--smo">MATLAB LVMC dsPIC33CK256MP508 FOC with Field Weakening &amp; SMO</h1>
+<h2 id="1-introduction">1. INTRODUCTION</h2>
+<p style="text-align: justify;">
+This document describes the setup requirements for running the Sensorless FOC with field weakening algorithm and a Sliding Mode Observer (SMO), using MATLAB/Simulink and dsPIC33CK Low Voltage Motor Control (LVMC) Board.</p>
+<p style="text-align: justify;">
+The SMO implementation is referenced from AN1078 &#x201C;Sensorless Field Oriented Control of a PMSM&#x201D;.
+</p>
+<h2 id="2-suggested-demonstration-requirements">2.	SUGGESTED DEMONSTRATION REQUIREMENTS</h2>
+<h3 id="21-matlab-model-required-for-the-demonstration">2.1 MATLAB Model Required for the Demonstration</h3>
+<ul>
+<li>MATLAB model can be cloned or downloaded as zip file from the Github repository (<a href="https://github.com/microchip-pic-avr-solutions/matlab-lvmc-dspic33ck256mp508-foc-smo">link</a>).</li>
+</ul>
+<h3 id="22-software-tools-used-for-testing-the-matlabsimulink-model">2.2	Software Tools Used for Testing the MATLAB/Simulink Model</h3>
+<ol>
+<li>MPLAB X IDE and IPE (v6.15)</li>
+<li>XC16 compiler (v2.10)</li>
+<li>MATLAB R2023b</li>
+<li>Required MATLAB add-on packages
+<ul>
+<li>Simulink (v23.2)</li>
+<li>Simulink Coder (v23.2)</li>
+<li>Stateflow (v23.2)</li>
+<li>MATLAB Coder (v23.2)</li>
+<li>Embedded Coder (v23.2)</li>
+<li>MPLAB Device blocks for Simulink (v3.51)</li>
+<li>Motor Control Blockset (v23.2)</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong><em>NOTE:</em></strong>
+The software used for testing the model during release is listed above. It is recommended to use the version listed above or later versions for building the model.</p>
+</blockquote>
+<h3 id="23-hardware-tools-required-for-the-demonstration">2.3	Hardware Tools Required for the Demonstration</h3>
+<ul>
+<li>dsPIC33CK Low Voltage Motor Control (LVMC) Development Board (<a href="https://www.microchip.com/en-us/development-tool/DM330031">DM330031</a>)</li>
+<li>24V Power Supply (<a href="https://www.microchipdirect.com/dev-tools/AC002013">AC002013</a>)</li>
+<li>24V, 3-Phase Brushless DC Permanent Magnet Hurst Motor (<a href="https://www.microchip.com/en-us/development-tool/AC300022">AC300022</a>)</li>
+</ul>
+<blockquote>
+<p><strong><em>NOTE:</em></strong>
+All items listed under this section Hardware Tools Required for the Demonstration are available at <a href="https://www.microchipdirect.com/">microchip DIRECT</a>.</p>
+</blockquote>
+<h2 id="3-hardware-setup">3. HARDWARE SETUP</h2>
+<p style="text-align: justify;">This section describes hardware setup required for the demonstration.</p>
+<ol>
+<li>
+<p style="text-align: justify;"> Connect the 3-phase wires from the motor to PHC, PHB, and PHA of the J14 connector (no specific order), provided on the dsPIC33CK LVMC Board.</p>
+ <p align="left">
+ <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic1.png"></p>
+</li>
+<li>
+<p style="text-align: justify;"> Plug in the 24V power supply to connector J1 provided on the dsPIC33CK LVMC Board. Alternatively, the Inverter Board can also be powered through Connector J2.</p>
+ <p align="left">
+ <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic2.png"></p>
+</li>
+<li>
+<p style="text-align: justify;"> The board has an onboard programmer &#x2018;PICkit&#x2122; On Board (PKoBv4)&#x201D;, which can be used for programming or debugging the dsPIC33CK256MP508. To use an on-board programmer, connect a micro-USB cable between Host PC and Micro USB connector J13 provided on the dsPIC33CK LVMC Board.</p>
+ <p align="left">
+ <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic3.png"></p>
+</li>
+<li>
+<p style="text-align: justify;">	Alternatively, the device can also be programmed using the programmer/debugger (MPLAB&#xAE; PICkit&#x2122; 4 In-Circuit Debugger - PG164140) by interfacing it through connector J10 of the dsPIC33CK LVMC Board, as shown below. Ensure that the programmer is oriented correctly before proceeding.</p>
+ <p align="left">
+ <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic4_5.png"></p>
+</li>
+</ol>
+<h2 id="4-basic-demonstration">4.	BASIC DEMONSTRATION</h2>
+<p style="text-align: justify;"> Follow the below instructions step-by-step, to set up and run the motor control demo application:</p>
+<ol>
+<li>
+<p>Launch MATLAB (refer the section <a href="#22-software-tools-used-for-testing-the-matlabsimulink-model">“2.2 Sofware Tools Used for Testing the MATLAB/Simulink Model&quot;</a>).</p></p>
+</li>
+<li>
+<p>Open the folder downloaded from the repository, in which MATLAB files are saved (refer the section <a href="#21-matlab-model-required-for-the-demonstration">&quot;2.1 MATLAB Model Required for the Demonstration&quot;</a>).</p>
+ <p align="left">
+ <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/dem1.png"></p>
+</li>
+<li>
+<p style="text-align: justify;"> Double click and open the .m file. This .m file contains the configuration parameter for the motor and board. By default, the .m file is configured to run Hurst 300 motor and LVMC board. Run the file by clicking the <b>&#x201C;Run&#x201D;</b> icon and wait till all variables gets loaded on the <b>&#x2018;Workspace&#x2019;</b> tab.
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/dem2.png"></p>
+<p></p>
+</li>
+<li>
+<p style="text-align: justify;">Double click on the Sensorless FOC Simulink model.
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/dem3.png"></p>
+<p></p>
+</li>
+<li>
+<p style="text-align: justify;">This opens the Simulink model as shown below. Click on the <b>&quot;Run&quot;</b> icon to start the simulation.
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/dem4.png"></p>
+<p></p>
+</li>
+<li>
+<p style="text-align: justify;">To plot the simulation result, <b>Data Inspector</b> is used (refer to figure below). To observe the additional signals, log them as required. Alternatively, normal Simulink Scope can be used to plot the signals.
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/dem5.png"></p>
+<p></p>
+</li>
+<li>
+<p style="text-align: justify;">From this Simulink model an MPLAB X project can be generated, and it can be used to run the PMSM motor using LVMC board. </p><p style="text-align: justify;">To generate the code from the Simulink model, go to the <b>&quot;MICROCHIP&quot;</b> tab, and enable the tabs shown in the figure below. 
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic12.png"></p>
+<p></p>
+</li>
+<li>
+<p style="text-align: justify;">	To generate the code and run the motor, click on <b>&#x2018;Build Model&#x2019; or &#x2018;Clean Build Model&#x2019;</b> option under the <b>&#x201C;Microchip&#x201D;</b> tab. This will generate the MPLAB X project from the Simulink model and program the dsPIC33CK256MP508 device.
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/demo8.png"></p>
+<p></p>
+</li>
+<li>
+<p style="text-align: justify;">After completing the process, the <b>&#x2018;Operation Succeeded&#x2019;</b> message will be displayed on the <b>&#x2018;Diagnostics Viewer&#x2019;</b>.
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic15.png"></p>
+<p></p>
+</li>
+<li>
+<p>If the device is successfully programmed, <b>LED- LD10 and LD11</b> will be blinking.</p>
+</li>
+<li>
+<p>To Run the motor, press the push button <b>SW1</b>.</p>
+<p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic18.png"></p> 
+<p></p>
+</li>
+<li>
+<p>The motor speed can be varied using the potentiometer (labeled <b>“POT1”</b>). Approximately, after 70% of the full potentiometer value (approximately at 3000 RPM), the motor enters into field weakening region.</p>
+<p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic19.png"></p>
+<p></p>
+</li>
+<li>
+<p>Press the push button <b>SW1</b> to stop the motor.</p>
+<p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic20.png"></p>
+<p></p>
+</li>
+</ol>
+<h2 id="5-data-visualization-using-motor-control-blockset-mcb-host-model">5.	DATA VISUALIZATION USING MOTOR CONTROL BLOCKSET (MCB) HOST MODEL</h2>
+<p style="text-align: justify;">The Sensorless FOC model comes with the initialization required for data visualization using Motor Control Blockset Host Model (MCB Host Model). The MCB Host Model is a Simulink model which facilitates data visualization through the UART Serial Interface. 
+</p><ol>
+<li>
+<p style="text-align: justify;">To establish serial communication with the host PC, connect a micro-USB cable between the host PC and the dsPIC33CK LVMC Board (J13 connector). This interface is used for programming as well. (Alternatively, a micro-USB cable can be connected from the host PC to the J6 connector of the dsPIC33CK LVMC Board to establish the serial communication).
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic21.png"></p>
+<p></p>
+</li>
+<li>
+<p>Ensure the sensorless FOC model is programmed and running as described under section <a href="#4-basic-demonstration">&quot;4. Basic Demonstration&quot;</a> by following steps 1 through 13.</p>
+</li>
+<li>
+<p style="text-align: justify;">Open the MCB Host model and double click on the <b>&#x201C;Serial Setup&#x201D;</b> block. Then select the appropriate COM port connected to the hardware from the drop-down menu and set the baud rate as 460829. Please note that the same baud rate is required to be chosen in the Sensorless FOC model (the baud rate can be viewed on the <b>&#x201C;UART Configuration&#x201D;</b> block inside <b>&#x201C;LVMC Template&#x201D;</b>).
+</p> <p align="left">
+   <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/host3.png"></p>
+ <p></p>
+</li>
+<li>
+<p style="text-align: justify;">Open the <b>&#x201C;UART_Rx&#x201D;</b> subsystem to configure the COM port. This can be done by configuring the <b>&#x201C;Host Serial Receive&#x201D;</b> block of the &#x201C;UART_Rx&#x201D; subsystem. Ensure to select the same COM port configured in step 3. 
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/host4.png"></p>
+<p></p>
+</li>
+<li>
+<p style="text-align: justify;">Click the run icon of the MCB Host model to open the scope window and monitor the signals.
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/host5.png"></p>
+<p></p>
+</li>
+<li>
+<p style="text-align: justify;">In the figure below, one example is shown where two signals (estimated and reference speeds) have been plotted.
+</p><p align="left">
+  <img src="file:///e:/Model_Release/matlab-lvmc-dspic33ck256mp508-foc-smo/images/pic25.png"></p>
+<p></p>
+</li>
+</ol>
+<h2 id="references">REFERENCES:</h2>
+<p>For more information, refer to the following documents or links.</p>
+<ol>
+<li>AN1078 Application Note “<a href="https://www.microchip.com/en-us/application-notes/an1078">Sensorless Field Oriented Control of a PMSM</a>”.</li>
+<li>dsPIC33CK LVMC Board User’s Guide (<a href="http://ww1.microchip.com/downloads/en/DeviceDoc/DS50002927a.pdf">DS50003297</a>)</li>
+<li><a href="https://microchipdeveloper.com/mplabx:installation">MPLAB® X IDE installation</a></li>
+<li><a href="https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/downloads-documentation#XC16">MPLAB® XC16 Compiler installation</a></li>
+<li><a href="https://in.mathworks.com/help/mcb/">Motor Control Blockset</a></li>
+<li><a href="https://in.mathworks.com/matlabcentral/fileexchange/71892-mplab-device-blocks-for-simulink-dspic-pic32-and-sam-mcu">MPLAB Device Blocks for Simulink :dsPIC, PIC32 and SAM mcu</a></li>
+</ol>
+
+</body>
+</html>

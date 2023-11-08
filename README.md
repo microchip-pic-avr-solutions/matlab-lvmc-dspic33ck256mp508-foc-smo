@@ -46,7 +46,7 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
     <p align="left" >
     <img  src="images/pic1.png"></p>
 
-2. <p style='text-align: justify;'> Plug in the 24V power supply to connector J1 provided on the dsPIC33CK LVMC Board. Al-ternatively, the Inverter Board can also be powered through Connector J2.</p>
+2. <p style='text-align: justify;'> Plug in the 24V power supply to connector J1 provided on the dsPIC33CK LVMC Board. Alternatively, the Inverter Board can also be powered through Connector J2.</p>
 
     <p align="left" >
     <img  src="images/pic2.png"></p>
@@ -65,7 +65,7 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 <p style='text-align: justify;'> Follow the below instructions step-by-step, to set up and run the motor control demo application:</p>
 
 1. Launch MATLAB (refer the section [“2.2 Sofware Tools Used for Testing the MATLAB/Simulink Model"](#22-software-tools-used-for-testing-the-matlabsimulink-model)).</p> 
-2. Open the folder dowmloaded from the repository, in which MATLAB files are saved (refer the section ["2.1 MATLAB Model Required for the Demonstration"](#21-matlab-model-required-for-the-demonstration)).
+2. Open the folder downloaded from the repository, in which MATLAB files are saved (refer the section ["2.1 MATLAB Model Required for the Demonstration"](#21-matlab-model-required-for-the-demonstration)).
 
     <p align="left" >
     <img  src="images/dem1.png"></p>
@@ -120,7 +120,7 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
       <img  src="images/pic18.png"></p> 
     </p>
 
-12.	The motor speed can be varied using the potentiometer (labeled <b>“POT1”</b>). Approximately, after 70% of the full potentiometer value (approximately at 3000 RPM), the motor eneters into field weakening region.
+12.	The motor speed can be varied using the potentiometer (labeled <b>“POT1”</b>). Approximately, after 70% of the full potentiometer value (approximately at 3000 RPM), the motor enters into field weakening region.
 
     <p align="left">
       <img  src="images/pic19.png"></p>
@@ -172,6 +172,6 @@ For more information, refer to the following documents or links.
 1.	AN1078 Application Note “[Sensorless Field Oriented Control of a PMSM](https://www.microchip.com/en-us/application-notes/an1078)”.
 2.	dsPIC33CK LVMC Board User’s Guide ([DS50003297](http://ww1.microchip.com/downloads/en/DeviceDoc/DS50002927a.pdf)) 
 3.	[MPLAB® X IDE installation](https://microchipdeveloper.com/mplabx:installation)
-4.	[MPLAB® XC16 Compiler installation](https://microchipdeveloper.com/mplabx:installation)
+4.	[MPLAB® XC16 Compiler installation](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/downloads-documentation#XC16)
 5.  [Motor Control Blockset](https://in.mathworks.com/help/mcb/)
 6.  [MPLAB Device Blocks for Simulink :dsPIC, PIC32 and SAM mcu](https://in.mathworks.com/matlabcentral/fileexchange/71892-mplab-device-blocks-for-simulink-dspic-pic32-and-sam-mcu)
