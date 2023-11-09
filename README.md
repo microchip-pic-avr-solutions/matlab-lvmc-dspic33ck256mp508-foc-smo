@@ -1,10 +1,10 @@
 ![image](images/microchip.png) 
 
-# MATLAB LVMC dsPIC33CK256MP508 FOC SMO
+# MATLAB LVMC dsPIC33CK256MP508 FOC with Field Weakening & SMO
 
 ## 1. INTRODUCTION
 <p style='text-align: justify;'>
-This document describes the setup requirements for running the Sensorless FOC algorithm with a Sliding Mode Observer (SMO), using MATLAB/Simulink and dsPIC33CK Low Voltage Motor Control (LVMC) Board.</p>
+This document describes the setup requirements for running the Sensorless FOC with field weakening algorithm and a Sliding Mode Observer (SMO), using MATLAB/Simulink and dsPIC33CK Low Voltage Motor Control (LVMC) Board.</p>
 <p style='text-align: justify;'>
 The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Control of a PMSM”.
 </p>
@@ -14,17 +14,17 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 -  MATLAB model can be cloned or downloaded as zip file from the Github repository ([link](https://github.com/microchip-pic-avr-solutions/matlab-lvmc-dspic33ck256mp508-foc-smo)).
 
 ### 2.2	Software Tools Used for Testing the MATLAB/Simulink Model
-1.	MPLAB X IDE and IPE (v6.00)
-2.	XC16 compiler (v2.00)
-3.	MATLAB R2022b
+1.	MPLAB X IDE and IPE (v6.15)
+2.	XC16 compiler (v2.10)
+3.	MATLAB R2023b
 4.	Required MATLAB add-on packages
-    -	Simulink (v10.6)
-    -	Simulink Coder (v9.8)
-    -	Stateflow (v10.7)
-    -	MATLAB Coder (v5.5)
-    -	Embedded Coder (v7.9)
-    -	MPLAB Device blocks for Simulink (v3.50.35)
-    - Motor Control Blockset (v1.5)
+    -	Simulink (v23.2)
+    -	Simulink Coder (v23.2)
+    -	Stateflow (v23.2)
+    -	MATLAB Coder (v23.2)
+    -	Embedded Coder (v23.2)
+    -	MPLAB Device blocks for Simulink (v3.51)
+    - Motor Control Blockset (v23.2)
 
 > **_NOTE:_**
 >The software used for testing the model during release is listed above. It is recommended to use the version listed above or later versions for building the model.
@@ -46,7 +46,7 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
     <p align="left" >
     <img  src="images/pic1.png"></p>
 
-2. <p style='text-align: justify;'> Plug in the 24V power supply to connector J1 provided on the dsPIC33CK LVMC Board. Al-ternatively, the Inverter Board can also be powered through Connector J2.</p>
+2. <p style='text-align: justify;'> Plug in the 24V power supply to connector J1 provided on the dsPIC33CK LVMC Board. Alternatively, the Inverter Board can also be powered through Connector J2.</p>
 
     <p align="left" >
     <img  src="images/pic2.png"></p>
@@ -65,7 +65,7 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
 <p style='text-align: justify;'> Follow the below instructions step-by-step, to set up and run the motor control demo application:</p>
 
 1. Launch MATLAB (refer the section [“2.2 Sofware Tools Used for Testing the MATLAB/Simulink Model"](#22-software-tools-used-for-testing-the-matlabsimulink-model)).</p> 
-2. Open the folder dowmloaded from the repository, in which MATLAB files are saved (refer the section ["2.1 MATLAB Model Required for the Demonstration"](#21-matlab-model-required-for-the-demonstration)).
+2. Open the folder downloaded from the repository, in which MATLAB files are saved (refer the section ["2.1 MATLAB Model Required for the Demonstration"](#21-matlab-model-required-for-the-demonstration)).
 
     <p align="left" >
     <img  src="images/dem1.png"></p>
@@ -120,7 +120,7 @@ The SMO implementation is referenced from AN1078 “Sensorless Field Oriented Co
       <img  src="images/pic18.png"></p> 
     </p>
 
-12.	The motor speed can be varied using the potentiometer (labeled <b>“POT1”</b>).
+12.	The motor speed can be varied using the potentiometer (labeled <b>“POT1”</b>). Approximately, after 70% of the full potentiometer value (approximately at 3000 RPM), the motor enters into field weakening region.
 
     <p align="left">
       <img  src="images/pic19.png"></p>
@@ -172,6 +172,6 @@ For more information, refer to the following documents or links.
 1.	AN1078 Application Note “[Sensorless Field Oriented Control of a PMSM](https://www.microchip.com/en-us/application-notes/an1078)”.
 2.	dsPIC33CK LVMC Board User’s Guide ([DS50003297](http://ww1.microchip.com/downloads/en/DeviceDoc/DS50002927a.pdf)) 
 3.	[MPLAB® X IDE installation](https://microchipdeveloper.com/mplabx:installation)
-4.	[MPLAB® XC16 Compiler installation](https://microchipdeveloper.com/mplabx:installation)
+4.	[MPLAB® XC16 Compiler installation](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/downloads-documentation#XC16)
 5.  [Motor Control Blockset](https://in.mathworks.com/help/mcb/)
 6.  [MPLAB Device Blocks for Simulink :dsPIC, PIC32 and SAM mcu](https://in.mathworks.com/matlabcentral/fileexchange/71892-mplab-device-blocks-for-simulink-dspic-pic32-and-sam-mcu)
